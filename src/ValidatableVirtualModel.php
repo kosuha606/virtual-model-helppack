@@ -84,8 +84,10 @@ abstract class ValidatableVirtualModel extends VirtualModel
      */
     public function save($config = [])
     {
-        $this->validate();
+        if ($this->validate()->isValid()) {
+            return parent::save($config);
+        }
 
-        return parent::save($config);
+        return false;
     }
 }
