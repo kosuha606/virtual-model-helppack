@@ -18,35 +18,55 @@ trait ObserveVMTrait
 
     public static function many($config = [], $indexBy = null)
     {
-        self::handleObservers('many');
-        return parent::many($config, $indexBy);
+        self::handleObservers('many', null, 'before');
+        $result = parent::many($config, $indexBy);
+        self::handleObservers('many', null, 'after');
+
+        return $result;
     }
 
     public function save($config = [])
     {
-        self::handleObservers('save', $this);
-        return parent::save($config);
+        self::handleObservers('save', $this, 'before');
+        $result = parent::save($config);
+        self::handleObservers('save', $this, 'after');
+
+        return $result;
     }
 
     public function delete()
     {
-        self::handleObservers('delete', $this);
-        parent::delete();
+        self::handleObservers('delete', $this, 'before');
+        $result = parent::delete();
+        self::handleObservers('delete', $this, 'after');
+
+        return $result;
     }
 
     public function __call($name, $inputArgs = [])
     {
-        self::handleObservers($name, $this);
-        return parent::__call($name, $inputArgs);
+        self::handleObservers($name, $this, 'before');
+        $result = parent::__call($name, $inputArgs);
+        self::handleObservers($name, $this, 'after');
+
+        return $result;
     }
 
     public static function __callStatic($name, $inputArgs = [])
     {
-        return parent::__callStatic($name, $inputArgs);
+        self::handleObservers($name, null, 'before');
+        $result = parent::__callStatic($name, $inputArgs);
+        self::handleObservers($name, null, 'after');
+
+        return $result;
     }
 
-    public static function handleObservers($name, $model = null)
+    public static function handleObservers($name, $model = null, $prefix = '')
     {
+        if ($prefix) {
+            $name = $prefix.ucfirst($name);
+        }
+
         $observers = self::observers();
 
         foreach ($observers as $observer) {
@@ -59,5 +79,4 @@ trait ObserveVMTrait
             }
         }
     }
-
 }
