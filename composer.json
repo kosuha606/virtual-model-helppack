@@ -8,11 +8,11 @@
       "email": "kosuha606@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "php": ">=7.0.0",
     "kosuha606/virtual-model": "^1.0.7",
-    "php-di/php-di": "dev-master"
+    "php-di/php-di": "^6.2.1"
   },
   "autoload": {
     "psr-4": {
