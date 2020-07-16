@@ -7,6 +7,7 @@ use kosuha606\VirtualModel\VirtualModel;
 /**
  * Абстрактный список для виртуальных моделей
  */
+
 abstract class AbstractList
 {
     protected static $instance;
@@ -18,13 +19,14 @@ abstract class AbstractList
         $this->items = $items;
     }
 
+    /**
+     * @param $items
+     * @return \app\modules\admin\virtual\Lists\AbstractList
+     */
     public static function getInstance($items)
     {
-        if (!self::$instance) {
-            self::$instance = new static($items);
-        }
-
-        return self::$instance;
+        self::$instance[static::class] = new static($items);
+        return self::$instance[static::class];
     }
 
     public function asArray()
