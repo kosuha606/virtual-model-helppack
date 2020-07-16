@@ -2,9 +2,9 @@
 
 namespace kosuha606\VirtualModelHelppack;
 
-use kosuha606\VirtualModel\VirtualModel;
+use kosuha606\VirtualModel\VirtualModelEntity;
 
-abstract class ValidatableVirtualModel extends VirtualModel
+abstract class ValidatableVirtualModel extends VirtualModelEntity
 {
     /**
      * @var array

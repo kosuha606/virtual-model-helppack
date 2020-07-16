@@ -2,7 +2,7 @@
 
 namespace kosuha606\VirtualModelHelppack;
 
-use kosuha606\VirtualModel\VirtualModel;
+use kosuha606\VirtualModel\VirtualModelEntity;
 
 /**
  * Абстрактный список для виртуальных моделей
@@ -21,7 +21,7 @@ abstract class AbstractList
 
     /**
      * @param $items
-     * @return \app\modules\admin\virtual\Lists\AbstractList
+     * @return AbstractList
      */
     public static function getInstance($items)
     {
@@ -31,7 +31,7 @@ abstract class AbstractList
 
     public function asArray()
     {
-        $result = VirtualModel::allToArray($this->items);
+        $result = VirtualModelEntity::allToArray($this->items);
 
         return $result;
     }
