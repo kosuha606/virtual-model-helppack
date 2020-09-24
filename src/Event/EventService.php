@@ -4,6 +4,9 @@ namespace kosuha606\VirtualModelHelppack\Event;
 
 class EventService
 {
+    /**
+     * @var array
+     */
     protected static $listeners = [];
 
     /**
@@ -13,6 +16,7 @@ class EventService
     {
         if (isset(self::$listeners[$event->getName()])) {
             $listeners = self::$listeners[$event->getName()];
+
             foreach ($listeners as $listener) {
                 call_user_func($listener[2], $event);
             }
@@ -58,5 +62,4 @@ class EventService
     {
         self::$listeners = $listeners;
     }
-
 }

@@ -4,8 +4,19 @@ namespace kosuha606\VirtualModelHelppack\Event;
 
 class Event
 {
+    /**
+     * @var string
+     */
     private $name;
+
+    /**
+     * @var mixed
+     */
     private $data;
+
+    /**
+     * @var object
+     */
     private $caller;
 
     /**

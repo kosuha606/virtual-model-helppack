@@ -6,6 +6,9 @@ use kosuha606\VirtualModelHelppack\ValidatableVirtualModel;
 
 class ValModelVm extends ValidatableVirtualModel
 {
+    /**
+     * @return array
+     */
     public function validators(): array
     {
         return [
@@ -13,6 +16,9 @@ class ValModelVm extends ValidatableVirtualModel
         ];
     }
 
+    /**
+     * @return array
+     */
     public function attributes(): array
     {
         return [

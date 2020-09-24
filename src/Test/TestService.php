@@ -4,19 +4,37 @@ namespace kosuha606\VirtualModelHelppack\Test;
 
 class TestService
 {
+    /**
+     * @var int
+     */
     public static $counter = 0;
 
+    /**
+     * @var
+     */
     public static $instance;
 
+    /**
+     * @var string
+     */
     public $name = 'hello';
 
+    /**
+     * @var string
+     */
     public $fromWhere = '';
 
+    /**
+     * TestService constructor.
+     */
     private function __construct()
     {
         self::$counter++;
     }
 
+    /**
+     * @return TestService
+     */
     public static function getInstance()
     {
         if (!self::$instance) {
