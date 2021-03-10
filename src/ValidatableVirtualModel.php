@@ -51,7 +51,7 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     }
 
     /**
-     * @param $attribute
+     * @param string $attribute
      */
     public function required($attribute)
     {
@@ -61,8 +61,8 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     }
 
     /**
-     * @param $attribute
-     * @param $error
+     * @param string $attribute
+     * @param string $error
      */
     public function addError($attribute, $error)
     {
@@ -79,7 +79,7 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
 
     /**
      * @param array $config
-     * @return |null
+     * @return bool
      * @throws \Exception
      */
     public function save($config = [])

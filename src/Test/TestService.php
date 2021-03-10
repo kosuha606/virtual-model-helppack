@@ -10,7 +10,7 @@ class TestService
     public static $counter = 0;
 
     /**
-     * @var
+     * @var static
      */
     public static $instance;
 
@@ -38,7 +38,8 @@ class TestService
     public static function getInstance()
     {
         if (!self::$instance) {
-            self::$instance = new static();
+            $className = static::class;
+            self::$instance = new $className();
         }
 
         return self::$instance;

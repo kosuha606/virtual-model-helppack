@@ -13,14 +13,11 @@ class ServiceManager implements ContainerInterface
     /** @var \DI\Container */
     private $container;
 
-    private function __construct()
-    {
-    }
-
     public static function getInstance()
     {
         if (!self::$instance) {
-            self::$instance = new static();
+            $className = static::class;
+            self::$instance = new $className();
         }
 
         return self::$instance;
@@ -61,7 +58,7 @@ class ServiceManager implements ContainerInterface
     }
 
     /**
-     * @param array $containerConfig
+     * @param array $definitions
      * @throws \Exception
      */
     public function setDefinitions(array $definitions)

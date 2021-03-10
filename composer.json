@@ -20,6 +20,15 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "6.5"
+    "phpunit/phpunit": "6.5",
+    "phpstan/phpstan": "^0.12.81"
+  },
+  "scripts": {
+    "check": [
+      "@stan",
+      "@ut"
+    ],
+    "ut": "phpunit --configuration C:\\OpenServer\\domains\\virtual-model-helppack\\phpunit.xml",
+    "stan": "vendor\\bin\\phpstan analyse -l 3 C:\\OpenServer\\domains\\virtual-model-helppack\\src C:\\OpenServer\\domains\\virtual-model-helppack\\tests"
   }
 }

@@ -24,7 +24,7 @@ class EventService
     }
 
     /**
-     * @param $eventName
+     * @param string $eventName
      * @param callable $callable
      * @param int $priority
      */

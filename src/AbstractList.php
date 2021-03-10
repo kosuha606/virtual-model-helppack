@@ -7,26 +7,31 @@ use kosuha606\VirtualModel\VirtualModelEntity;
 /**
  * Абстрактный список для виртуальных моделей
  */
-
 abstract class AbstractList
 {
     protected static $instance;
 
+    /** @var array */
     protected $items;
 
+    /**
+     * @param array $items
+     */
     private function __construct($items)
     {
         $this->items = $items;
     }
 
     /**
-     * @param $items
+     * @param array $items
      * @return AbstractList
      */
     public static function getInstance($items)
     {
-        self::$instance[static::class] = new static($items);
-        return self::$instance[static::class];
+        $className = static::class;
+        self::$instance[$className] = new $className($items);
+
+        return self::$instance[$className];
     }
 
     public function asArray()
