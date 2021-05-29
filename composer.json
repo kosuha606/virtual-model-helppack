@@ -8,7 +8,7 @@
       "email": "kosuha606@gmail.com"
     }
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "require": {
     "php": ">=7.0.0",
     "kosuha606/virtual-model": "^1.2.5",
