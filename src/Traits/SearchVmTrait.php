@@ -9,6 +9,11 @@ trait SearchVmTrait
 {
     abstract public static function filter($key, $value);
 
+    /**
+     * @param $filter
+     * @param array $config
+     * @return mixed
+     */
     public static function search($filter, $config = [])
     {
         $filterWhere = [];

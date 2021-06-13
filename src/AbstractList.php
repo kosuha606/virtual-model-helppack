@@ -9,15 +9,13 @@ use kosuha606\VirtualModel\VirtualModelEntity;
  */
 abstract class AbstractList
 {
-    protected static $instance;
-
-    /** @var array */
-    protected $items;
+    protected static AbstractList $instance;
+    protected array $items;
 
     /**
      * @param array $items
      */
-    private function __construct($items)
+    private function __construct(array $items)
     {
         $this->items = $items;
     }
@@ -26,7 +24,7 @@ abstract class AbstractList
      * @param array $items
      * @return AbstractList
      */
-    public static function getInstance($items)
+    public static function getInstance(array $items): AbstractList
     {
         $className = static::class;
         self::$instance[$className] = new $className($items);
@@ -34,19 +32,26 @@ abstract class AbstractList
         return self::$instance[$className];
     }
 
-    public function asArray()
+    /**
+     * @return array
+     */
+    public function asArray(): array
     {
-        $result = VirtualModelEntity::allToArray($this->items);
-
-        return $result;
+        return VirtualModelEntity::allToArray($this->items);
     }
 
+    /**
+     * @return false|string
+     */
     public function asJson()
     {
         return json_encode($this->asArray(), JSON_UNESCAPED_UNICODE);
     }
 
-    public function asObjects()
+    /**
+     * @return array
+     */
+    public function asObjects(): array
     {
         return $this->items;
     }

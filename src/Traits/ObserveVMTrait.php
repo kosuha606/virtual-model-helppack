@@ -7,15 +7,24 @@ namespace kosuha606\VirtualModelHelppack\Traits;
  */
 trait ObserveVMTrait
 {
-    private static $registeredObservers = [];
+    private static array $registeredObservers = [];
 
     abstract public static function observers();
 
+    /**
+     * @param array $config
+     * @return mixed
+     */
     public static function one($config = [])
     {
         return parent::one($config);
     }
 
+    /**
+     * @param array $config
+     * @param null $indexBy
+     * @return mixed
+     */
     public static function many($config = [], $indexBy = null)
     {
         self::handleObservers('many', null, 'before');
@@ -25,6 +34,10 @@ trait ObserveVMTrait
         return $result;
     }
 
+    /**
+     * @param array $config
+     * @return mixed
+     */
     public function save($config = [])
     {
         self::handleObservers('save', $this, 'before');
@@ -34,6 +47,9 @@ trait ObserveVMTrait
         return $result;
     }
 
+    /**
+     * @return mixed
+     */
     public function delete()
     {
         self::handleObservers('delete', $this, 'before');
@@ -43,7 +59,12 @@ trait ObserveVMTrait
         return $result;
     }
 
-    public function __call($name, $inputArgs = [])
+    /**
+     * @param string $name
+     * @param array $inputArgs
+     * @return mixed
+     */
+    public function __call(string $name, array $inputArgs = [])
     {
         self::handleObservers($name, $this, 'before');
         $result = parent::__call($name, $inputArgs);
@@ -52,7 +73,12 @@ trait ObserveVMTrait
         return $result;
     }
 
-    public static function __callStatic($name, $inputArgs = [])
+    /**
+     * @param $name
+     * @param array $inputArgs
+     * @return mixed
+     */
+    public static function __callStatic(string $name, array $inputArgs = [])
     {
         self::handleObservers($name, null, 'before');
         $result = parent::__callStatic($name, $inputArgs);
@@ -61,7 +87,12 @@ trait ObserveVMTrait
         return $result;
     }
 
-    public static function handleObservers($name, $model = null, $prefix = '')
+    /**
+     * @param string $name
+     * @param null $model
+     * @param string $prefix
+     */
+    public static function handleObservers(string $name, $model = null, $prefix = '')
     {
         if ($prefix) {
             $name = $prefix.ucfirst($name);

@@ -4,15 +4,8 @@ namespace kosuha606\VirtualModelHelppack\Test;
 
 class TestServiceSecond
 {
-    /**
-     * @var int
-     */
-    public static $counter = 0;
-
-    /**
-     * @var string
-     */
-    public $name = '123';
+    public static int $counter = 0;
+    public string $name = '123';
 
     /**
      * TestServiceSecond constructor.

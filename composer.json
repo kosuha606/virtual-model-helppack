@@ -10,9 +10,10 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=7.0.0",
+    "php": ">=7.4",
     "kosuha606/virtual-model": "^1.2.5",
-    "php-di/php-di": "^6.2.1"
+    "php-di/php-di": "^6.2.1",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {

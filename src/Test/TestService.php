@@ -4,25 +4,10 @@ namespace kosuha606\VirtualModelHelppack\Test;
 
 class TestService
 {
-    /**
-     * @var int
-     */
-    public static $counter = 0;
-
-    /**
-     * @var static
-     */
-    public static $instance;
-
-    /**
-     * @var string
-     */
-    public $name = 'hello';
-
-    /**
-     * @var string
-     */
-    public $fromWhere = '';
+    public static int $counter = 0;
+    public static TestService $instance;
+    public string $name = 'hello';
+    public string $fromWhere = '';
 
     /**
      * TestService constructor.
@@ -35,7 +20,7 @@ class TestService
     /**
      * @return TestService
      */
-    public static function getInstance()
+    public static function getInstance(): TestService
     {
         if (!self::$instance) {
             $className = static::class;
@@ -57,7 +42,7 @@ class TestService
      * @param string $fromWhere
      * @return TestService
      */
-    public function setFromWhere(string $fromWhere)
+    public function setFromWhere(string $fromWhere): TestService
     {
         $this->fromWhere = $fromWhere;
 

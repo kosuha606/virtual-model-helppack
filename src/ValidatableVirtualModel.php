@@ -2,14 +2,12 @@
 
 namespace kosuha606\VirtualModelHelppack;
 
+use Exception;
 use kosuha606\VirtualModel\VirtualModelEntity;
 
 abstract class ValidatableVirtualModel extends VirtualModelEntity
 {
-    /**
-     * @var array
-     */
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * @return array
@@ -27,13 +25,13 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function validate()
+    public function validate(): ValidatableVirtualModel
     {
         foreach ($this->validators() as $attribute => $method) {
             if (!method_exists($this, $method)) {
-                throw new \Exception("Validator for attribute $attribute was not found");
+                throw new Exception("Validator for attribute $attribute was not found");
             }
 
             $this->$method($attribute);
@@ -45,7 +43,7 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     /**
      * @return bool
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return !$this->errors;
     }
@@ -53,7 +51,7 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     /**
      * @param string $attribute
      */
-    public function required($attribute)
+    public function required(string $attribute): void
     {
         if (!$this->$attribute) {
             $this->addError($attribute, sprintf($this->errorMessages()['required'], $attribute));
@@ -64,7 +62,7 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
      * @param string $attribute
      * @param string $error
      */
-    public function addError($attribute, $error)
+    public function addError(string $attribute, string $error): void
     {
         $this->errors[$attribute] = $error;
     }
@@ -72,7 +70,7 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     /**
      * @return array
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }
@@ -80,9 +78,9 @@ abstract class ValidatableVirtualModel extends VirtualModelEntity
     /**
      * @param array $config
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
-    public function save($config = [])
+    public function save($config = []): bool
     {
         if ($this->validate()->isValid()) {
             return parent::save($config);

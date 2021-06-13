@@ -4,27 +4,19 @@ namespace kosuha606\VirtualModelHelppack\Event;
 
 class Event
 {
-    /**
-     * @var string
-     */
-    private $name;
-
+    private string $name;
     /**
      * @var mixed
      */
     private $data;
-
-    /**
-     * @var object
-     */
-    private $caller;
+    private object $caller;
 
     /**
      * @param string $name
      * @param object $caller
      * @param mixed $data
      */
-    public function __construct($name, $caller, $data)
+    public function __construct(string $name, object $caller, $data)
     {
         $this->name = $name;
         $this->caller = $caller;
@@ -34,7 +26,7 @@ class Event
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -50,7 +42,7 @@ class Event
     /**
      * @return object
      */
-    public function getCaller()
+    public function getCaller(): object
     {
         return $this->caller;
     }
@@ -59,7 +51,7 @@ class Event
      * @param mixed $data
      * @return Event
      */
-    public function setData($data)
+    public function setData($data): Event
     {
         $this->data = $data;
 

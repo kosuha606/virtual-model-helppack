@@ -8,12 +8,13 @@ use DI\ContainerBuilder;
 
 class ServiceManager implements ContainerInterface
 {
-    private static $instance;
+    private static ServiceManager $instance;
+    private Container $container;
 
-    /** @var \DI\Container */
-    private $container;
-
-    public static function getInstance()
+    /**
+     * @return ServiceManager
+     */
+    public static function getInstance(): ServiceManager
     {
         if (!self::$instance) {
             $className = static::class;

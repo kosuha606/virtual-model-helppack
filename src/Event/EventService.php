@@ -7,12 +7,12 @@ class EventService
     /**
      * @var array
      */
-    protected static $listeners = [];
+    protected static array $listeners = [];
 
     /**
      * @param Event $event
      */
-    public function trigger($event)
+    public function trigger(Event $event)
     {
         if (isset(self::$listeners[$event->getName()])) {
             $listeners = self::$listeners[$event->getName()];
@@ -28,7 +28,7 @@ class EventService
      * @param callable $callable
      * @param int $priority
      */
-    public function on($eventName, callable $callable, $priority = 100)
+    public function on(string $eventName, callable $callable, $priority = 100)
     {
         if (!isset(self::$listeners[$eventName])) {
             self::$listeners[$eventName] = [];
@@ -50,7 +50,7 @@ class EventService
     /**
      * @return array
      */
-    public function getListeners()
+    public function getListeners(): array
     {
         return self::$listeners;
     }
