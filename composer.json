@@ -1,6 +1,6 @@
 {
   "name": "kosuha606/virtual-model-helppack",
-  "description": "VirtualModelHelppack",
+  "description": "VirtualModelHelpers",
   "type": "library",
   "authors": [
     {
@@ -11,13 +11,13 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=7.4",
-    "kosuha606/virtual-model": "^1.2.5",
+    "kosuha606/virtual-model": "^2.0.0",
     "php-di/php-di": "^6.2.1",
     "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
-      "kosuha606\\VirtualModelHelppack\\": "src"
+      "kosuha606\\VirtualModelHelpers\\": "src"
     }
   },
   "require-dev": {

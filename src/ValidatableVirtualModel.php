@@ -1,6 +1,8 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack;
+/** @noinspection PhpUnused */
+
+namespace kosuha606\VirtualModelHelpers;
 
 use Exception;
 use kosuha606\VirtualModel\VirtualModelEntity;

@@ -1,13 +1,22 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Traits;
+/** @noinspection PhpUnused */
+/** @noinspection PhpUndefinedMethodInspection */
 
-/**
- * Трейт для поиска по модели
- */
+namespace kosuha606\VirtualModelHelpers\Traits;
+
 trait SearchVmTrait
 {
-    abstract public static function filter($key, $value);
+    /**
+     * @param $key
+     * @param $value
+     * @return array
+     * @noinspection PhpUnusedParameterInspection
+     */
+    public static function filter($key, $value): array
+    {
+        return [];
+    }
 
     /**
      * @param $filter

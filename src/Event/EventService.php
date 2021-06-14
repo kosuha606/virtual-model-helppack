@@ -1,12 +1,9 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Event;
+namespace kosuha606\VirtualModelHelpers\Event;
 
 class EventService
 {
-    /**
-     * @var array
-     */
     protected static array $listeners = [];
 
     /**

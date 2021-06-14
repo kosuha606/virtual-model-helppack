@@ -1,15 +1,20 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Traits;
+/** @noinspection PhpUndefinedClassInspection */
 
-/**
- * Этот трейт необходим для привяки наблюдателей к моделям
- */
+namespace kosuha606\VirtualModelHelpers\Traits;
+
 trait ObserveVMTrait
 {
     private static array $registeredObservers = [];
 
-    abstract public static function observers();
+    /**
+     * @return array
+     */
+    public static function observers(): array
+    {
+        return [];
+    }
 
     /**
      * @param array $config

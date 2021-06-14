@@ -1,6 +1,6 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Test;
+namespace kosuha606\VirtualModelHelpers\Test;
 
 class TestServiceSecond
 {

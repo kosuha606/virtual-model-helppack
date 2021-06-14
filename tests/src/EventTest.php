@@ -1,8 +1,8 @@
 <?php
 
-use kosuha606\VirtualModelHelppack\Event\Event;
-use kosuha606\VirtualModelHelppack\Event\EventService;
-use kosuha606\VirtualModelHelppack\ServiceManager;
+use kosuha606\VirtualModelHelpers\Event\Event;
+use kosuha606\VirtualModelHelpers\Event\EventService;
+use kosuha606\VirtualModelHelpers\ServiceManager;
 use PHPUnit\Framework\TestCase;
 
 class EventTest extends TestCase

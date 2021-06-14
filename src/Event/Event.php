@@ -1,13 +1,11 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Event;
+namespace kosuha606\VirtualModelHelpers\Event;
 
 class Event
 {
     private string $name;
-    /**
-     * @var mixed
-     */
+    /** @var mixed  */
     private $data;
     private object $caller;
 
@@ -57,6 +55,4 @@ class Event
 
         return $this;
     }
-
-
 }

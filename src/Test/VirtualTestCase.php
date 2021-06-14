@@ -1,6 +1,6 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Test;
+namespace kosuha606\VirtualModelHelpers\Test;
 
 use Exception;
 use kosuha606\VirtualModel\Example\MemoryModelProvider;
@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 abstract class VirtualTestCase extends TestCase
 {
-    /** @var MemoryModelProvider */
     public MemoryModelProvider $provider;
 
     /**

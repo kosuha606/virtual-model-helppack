@@ -1,7 +1,7 @@
 <?php
 
-use kosuha606\VirtualModelHelppack\ServiceManager;
-use kosuha606\VirtualModelHelppack\Test\TestService;
+use kosuha606\VirtualModelHelpers\ServiceManager;
+use kosuha606\VirtualModelHelpers\Test\TestService;
 
 require_once __DIR__.'/../vendor/autoload.php';
 

@@ -1,8 +1,10 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Test;
+/** @noinspection PhpUnused */
 
-use kosuha606\VirtualModelHelppack\ValidatableVirtualModel;
+namespace kosuha606\VirtualModelHelpers\Test;
+
+use kosuha606\VirtualModelHelpers\ValidatableVirtualModel;
 
 class ValModelVm extends ValidatableVirtualModel
 {

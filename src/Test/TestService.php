@@ -1,11 +1,11 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack\Test;
+namespace kosuha606\VirtualModelHelpers\Test;
 
 class TestService
 {
     public static int $counter = 0;
-    public static TestService $instance;
+    public static ?TestService $instance = null;
     public string $name = 'hello';
     public string $fromWhere = '';
 
@@ -32,6 +32,7 @@ class TestService
 
     /**
      * @return string
+     * @noinspection PhpUnused
      */
     public function getFromWhere(): string
     {
@@ -41,6 +42,7 @@ class TestService
     /**
      * @param string $fromWhere
      * @return TestService
+     * @noinspection PhpUnused
      */
     public function setFromWhere(string $fromWhere): TestService
     {

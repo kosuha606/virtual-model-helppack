@@ -1,8 +1,8 @@
 <?php
 
-use kosuha606\VirtualModelHelppack\ServiceManager;
-use kosuha606\VirtualModelHelppack\Test\TestService;
-use kosuha606\VirtualModelHelppack\Test\TestServiceSecond;
+use kosuha606\VirtualModelHelpers\ServiceManager;
+use kosuha606\VirtualModelHelpers\Test\TestService;
+use kosuha606\VirtualModelHelpers\Test\TestServiceSecond;
 use PHPUnit\Framework\TestCase;
 
 class ContainerTest extends TestCase

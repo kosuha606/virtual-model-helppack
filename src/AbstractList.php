@@ -1,11 +1,11 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack;
+namespace kosuha606\VirtualModelHelpers;
 
 use kosuha606\VirtualModel\VirtualModelEntity;
 
 /**
- * Абстрактный список для виртуальных моделей
+ * Abstract list for virtual models
  */
 abstract class AbstractList
 {
@@ -42,6 +42,7 @@ abstract class AbstractList
 
     /**
      * @return false|string
+     * @noinspection PhpUnused
      */
     public function asJson()
     {

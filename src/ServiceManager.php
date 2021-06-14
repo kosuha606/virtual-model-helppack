@@ -1,14 +1,17 @@
 <?php
 
-namespace kosuha606\VirtualModelHelppack;
+namespace kosuha606\VirtualModelHelpers;
 
+use DI\DependencyException;
+use DI\NotFoundException;
+use Exception;
 use Psr\Container\ContainerInterface;
 use DI\Container;
 use DI\ContainerBuilder;
 
 class ServiceManager implements ContainerInterface
 {
-    private static ServiceManager $instance;
+    private static ?ServiceManager $instance = null;
     private Container $container;
 
     /**
@@ -27,10 +30,12 @@ class ServiceManager implements ContainerInterface
     /**
      * @param string $id
      * @return mixed|string
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws Exception
+     * @noinspection PhpMissingReturnTypeInspection
      */
-    public function get($id)
+    public function get(string $id)
     {
         return $this->getContainer()->get($id);
     }
@@ -38,18 +43,18 @@ class ServiceManager implements ContainerInterface
     /**
      * @param string $id
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
-    public function has($id)
+    public function has(string $id): bool
     {
         return $this->getContainer()->has($id);
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      * @return Container
      */
-    public function getContainer()
+    public function getContainer(): Container
     {
         if (!$this->container) {
             $this->setDefinitions([]);
@@ -60,7 +65,7 @@ class ServiceManager implements ContainerInterface
 
     /**
      * @param array $definitions
-     * @throws \Exception
+     * @throws Exception
      */
     public function setDefinitions(array $definitions)
     {

@@ -1,7 +1,7 @@
 <?php
 
-use kosuha606\VirtualModelHelppack\Test\ValModelVm;
-use kosuha606\VirtualModelHelppack\Test\VirtualTestCase;
+use kosuha606\VirtualModelHelpers\Test\ValModelVm;
+use kosuha606\VirtualModelHelpers\Test\VirtualTestCase;
 
 class ValidatableTest extends VirtualTestCase
 {
